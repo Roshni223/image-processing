@@ -1,0 +1,23 @@
+package com.example.demo;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
+
+import java.util.Map;
+
+
+@Component
+@EnableConfigurationProperties
+@ConfigurationProperties(prefix = "application")
+@PropertySource(value = "file:/home/vassarlabs/crowd_monitoring.yml", factory = YamlPropertySourceFactory.class)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CrowdMonitoringProperties {
+    private Map<String, String> MODEL_VS_CHECKPOINT;
+}
